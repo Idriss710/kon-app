@@ -63,164 +63,158 @@ class _HomeScreenState extends State<HomeScreen> {
       //  SettingsPage(onScroll: _toggleBars),
       
     ];
-    return AnnotatedRegion(
-      value: SystemUiOverlayStyle(
-        // statusBarColor: Colors.green,
-        statusBarBrightness: Brightness.dark
-      ),
-      child: Scaffold(
-        body: Stack(
-  children: [
-    // Container(
-    //   // color: Colors.green,
-    //   padding:EdgeInsets.only(
-    //     top: MediaQuery.of(context).padding.top
-    //   ),
-    // ),
-    Positioned.fill(
-      child: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
-      ),
+    return Scaffold(
+      body: Stack(
+      children: [
+        // Container(
+        //   // color: Colors.green,
+        //   padding:EdgeInsets.only(
+        //     top: MediaQuery.of(context).padding.top
+        //   ),
+        // ),
+        Positioned.fill(
+    child: PageView(
+      controller: _pageController,
+      physics: const NeverScrollableScrollPhysics(),
+      children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
     ),
-    AnimatedPositioned(
-      top: _showBottomAndTopBars ? 40 : -100,
-      left: 15,
-      right: 15,
-      duration: Duration(milliseconds: 300),
-      child: Row(
-        children: [
-    if (_showBottomAndTopBars)
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 8,
-                  spreadRadius: 2,
-                  offset: Offset(0, 4),
-                ),
-              ],
-            ),
-            ///////////////////////// Navigation Drwaer sideBar ////////////////////////
-            child: IconButton(
-              // onPressed: (){
-              //   Get.to(ProfileScreen());
-              // },
-              onPressed: _toggleSidebar,
-              icon: const Icon(Icons.menu, color: Colors.green),
-            ),
-          ),
-          const SizedBox(width: 15),
-          CustomSearchTextField(controller: searchTextEditingController),
-        ],
-      ),
-    ),
-
-        
-    // لإغلاق القائمة عند الضغط في أي مكان
-    if (_isSidebarOpen)
-      Positioned.fill(
-        child: GestureDetector(
-          onTap: _toggleSidebar,
-          child: Container(color: Colors.black.withOpacity(0.5)), // تأثير التعتيم عند الفتح
         ),
-      ),
-    // الشريط الجانبي
-    AnimatedPositioned(
-      duration: const Duration(milliseconds: 300),
-      left: _isSidebarOpen ? 0 : -250,
-      top: 0,
-      bottom: 0,
-      child: CustomSidebar(onClose: _toggleSidebar),
+        AnimatedPositioned(
+    top: _showBottomAndTopBars ? 40 : -100,
+    left: 15,
+    right: 15,
+    duration: Duration(milliseconds: 300),
+    child: Row(
+      children: [
+        if (_showBottomAndTopBars)
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 8,
+                spreadRadius: 2,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          ///////////////////////// Navigation Drwaer sideBar ////////////////////////
+          child: IconButton(
+            // onPressed: (){
+            //   Get.to(ProfileScreen());
+            // },
+            onPressed: _toggleSidebar,
+            icon: const Icon(Icons.menu, color: Colors.green),
+          ),
+        ),
+        const SizedBox(width: 15),
+        CustomSearchTextField(controller: searchTextEditingController),
+      ],
     ),
+        ),
+    
       
-            
-              ],
-)
-,
-extendBody: true,
-bottomNavigationBar: (bottomBarPages.length <= maxCount)
-          ? AnimatedNotchBottomBar(
-                  /// Provide NotchBottomBarController
-                  notchBottomBarController: _controller,
-                  color: Colors.white,
-                  showLabel: true,
-                  textOverflow: TextOverflow.visible,
-                  maxLine: 1,
-                  shadowElevation: 5,
-                  kBottomRadius: 28.0,
-                
-                  // notchShader: const SweepGradient(
-                  //   startAngle: 0,
-                  //   endAngle: pi / 2,
-                  //   colors: [Colors.red, Colors.green, Colors.orange],
-                  //   tileMode: TileMode.mirror,
-                  // ).createShader(Rect.fromCircle(center: Offset.zero, radius: 8.0)),
-                  notchColor: Colors.black87,
-                
-                  /// restart app if you change removeMargins
-                  removeMargins: false,
-                  bottomBarWidth: 500,
-                  showShadow: false,
-                  durationInMilliSeconds: 300,
-                
-                  itemLabelStyle: const TextStyle(fontSize: 10),
-                
-                  elevation: 1,
-                  bottomBarItems: const [
-                    BottomBarItem(
-                      inActiveItem: Icon(
-                        Icons.home,
-                        color: Colors.blueGrey,
-                      ),
-                      activeItem: Icon(
-                        Icons.home_filled,
-                        color: Colors.green,
-                      ),
-                      itemLabel: 'Home',
-                    ),
-                    BottomBarItem(
-                      inActiveItem: Icon(Icons.groups_2_outlined, color: Colors.blueGrey),
-                      activeItem: Icon(
-                        Icons.groups_2_outlined,
-                        color: Colors.green,
-                      ),
-                      itemLabel: 'Groups',
-                    ),
-                    BottomBarItem(
-                      inActiveItem: Icon(
-                        Icons.notification_important_outlined,
-                        color: Colors.blueGrey,
-                      ),
-                      activeItem: Icon(
-                        Icons.notification_important_outlined,
-                        color: Colors.green,
-                      ),
-                      itemLabel: 'Notification',
-                    ),
-                    BottomBarItem(
-                      inActiveItem: Icon(
-                        Icons.settings,
-                        color: Colors.blueGrey,
-                      ),
-                      activeItem: Icon(
-                        Icons.settings,
-                        color: Colors.green,
-                      ),
-                      itemLabel: 'Settings',
-                    ),
-                  ],
-                  onTap: (index) {
-                    log('current selected index $index');
-                    _pageController.jumpToPage(index);
-                  },
-                  kIconSize: 24.0,
-                ): null,
+        // لإغلاق القائمة عند الضغط في أي مكان
+        if (_isSidebarOpen)
+    Positioned.fill(
+      child: GestureDetector(
+        onTap: _toggleSidebar,
+        child: Container(color: Colors.black.withOpacity(0.5)), // تأثير التعتيم عند الفتح
       ),
+    ),
+        // الشريط الجانبي
+        AnimatedPositioned(
+    duration: const Duration(milliseconds: 300),
+    left: _isSidebarOpen ? 0 : -250,
+    top: 0,
+    bottom: 0,
+    child: CustomSidebar(onClose: _toggleSidebar),
+        ),
+    
+          
+            ],
+    )
+    ,
+    extendBody: true,
+    bottomNavigationBar: (bottomBarPages.length <= maxCount)
+        ? AnimatedNotchBottomBar(
+                /// Provide NotchBottomBarController
+                notchBottomBarController: _controller,
+                color: Colors.white,
+                showLabel: true,
+                textOverflow: TextOverflow.visible,
+                maxLine: 1,
+                shadowElevation: 5,
+                kBottomRadius: 28.0,
+              
+                // notchShader: const SweepGradient(
+                //   startAngle: 0,
+                //   endAngle: pi / 2,
+                //   colors: [Colors.red, Colors.green, Colors.orange],
+                //   tileMode: TileMode.mirror,
+                // ).createShader(Rect.fromCircle(center: Offset.zero, radius: 8.0)),
+                notchColor: Colors.black87,
+              
+                /// restart app if you change removeMargins
+                removeMargins: false,
+                bottomBarWidth: 500,
+                showShadow: false,
+                durationInMilliSeconds: 300,
+              
+                itemLabelStyle: const TextStyle(fontSize: 10),
+              
+                elevation: 1,
+                bottomBarItems: const [
+                  BottomBarItem(
+                    inActiveItem: Icon(
+                      Icons.home,
+                      color: Colors.blueGrey,
+                    ),
+                    activeItem: Icon(
+                      Icons.home_filled,
+                      color: Colors.green,
+                    ),
+                    itemLabel: 'Home',
+                  ),
+                  BottomBarItem(
+                    inActiveItem: Icon(Icons.groups_2_outlined, color: Colors.blueGrey),
+                    activeItem: Icon(
+                      Icons.groups_2_outlined,
+                      color: Colors.green,
+                    ),
+                    itemLabel: 'Groups',
+                  ),
+                  BottomBarItem(
+                    inActiveItem: Icon(
+                      Icons.notification_important_outlined,
+                      color: Colors.blueGrey,
+                    ),
+                    activeItem: Icon(
+                      Icons.notification_important_outlined,
+                      color: Colors.green,
+                    ),
+                    itemLabel: 'Notification',
+                  ),
+                  BottomBarItem(
+                    inActiveItem: Icon(
+                      Icons.settings,
+                      color: Colors.blueGrey,
+                    ),
+                    activeItem: Icon(
+                      Icons.settings,
+                      color: Colors.green,
+                    ),
+                    itemLabel: 'Settings',
+                  ),
+                ],
+                onTap: (index) {
+                  log('current selected index $index');
+                  _pageController.jumpToPage(index);
+                },
+                kIconSize: 24.0,
+              ): null,
     );
   }
 }

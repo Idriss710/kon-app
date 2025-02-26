@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kon/views/profile_screen.dart';
 import 'package:kon/views/registration_and_login_pages/forgot_password.dart';
@@ -10,6 +11,13 @@ import 'package:kon/views/registration_and_login_pages/splash_screen.dart';
 import 'package:kon/views/registration_and_login_pages/verification.dart';
 
 void main() {
+WidgetsFlutterBinding.ensureInitialized();
+SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  // statusBarColor: Colors.transparent,
+  statusBarIconBrightness: Brightness.dark,
+
+));
+
   runApp(const MyApp());
 }
 
