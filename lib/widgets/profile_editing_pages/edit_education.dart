@@ -16,7 +16,7 @@ class _EditEducationState extends State<EditEducation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Edit Education "),
+      appBar: AppBar(title: const Text(" Education "),
       leading: IconButton(onPressed: () {
         Get.off(ProfileScreen());
       }, icon: const Icon(Icons.arrow_back)),),

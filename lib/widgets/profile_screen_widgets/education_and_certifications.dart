@@ -71,6 +71,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kon/widgets/profile_editing_pages/edit_education.dart';
 
 class EducationAndCertifications extends StatelessWidget {
   const EducationAndCertifications({super.key});
@@ -101,9 +103,20 @@ class EducationAndCertifications extends StatelessWidget {
             child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          item["University"]!,
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        Row(
+                          children: [
+                            Text(
+                              item["University"]!,
+                              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            Spacer(),
+                            IconButton(
+                              onPressed: () {
+                                Get.off(EditEducation());
+                              },
+                              icon: Icon(Icons.edit, color: Colors.green),
+                            )
+                          ],
                         ),
                         const SizedBox(height: 12),
                         Text(

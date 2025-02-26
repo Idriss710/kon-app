@@ -74,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               onPressed: () {
                                 Get.off(EditEducation());
                               },
-                              icon: Icon(Icons.edit, color: Colors.green),
+                              icon: Icon(Icons.add, color: Colors.green),
                             )
                           ],
                         ),
@@ -86,7 +86,87 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Container(height: 5, color: Colors.green[100]),
 
+                  // //////////////////////////////// Skills Section //////////////////////////////
+                  // SizedBox(height: 20),
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(horizontal: 20),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Row(
+                  //         children: [
+                  //           Image.asset('assets/images/skills.png', width: 40, height: 40),
+                  //           SizedBox(width: 10),
+                  //           const Text('Skills',
+                  //               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  //           Spacer(),
+                  //           IconButton(
+                  //               onPressed: () {},
+                  //               icon: const Icon(Icons.edit, color: Colors.green))
+                  //         ],
+                  //       ),
+                  //       const SizedBox(height: 10),
+                  //       // Skills()
+                  //     ],
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 16),
+                  // Container(height: 5, color: Colors.green[100]),
 
+                  // ///////////////////////////////// Experience Section /////////////////////////
+                  // const SizedBox(height: 20),
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(horizontal: 20),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Row(
+                  //         children: [
+                  //           Image.asset('assets/images/experience.png', width: 40, height: 40, color: Colors.black),
+                  //           SizedBox(width: 10),
+                  //           const Text('Experience',
+                  //               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  //           Spacer(),
+                  //           IconButton(
+                  //               onPressed: () {},
+                  //               icon: Icon(Icons.edit, color: Colors.green))
+                  //         ],
+                  //       ),
+                  //       SizedBox(height: 10),
+                  //       // Experience(),
+                  //       SizedBox(height: 20),
+                  //     ],
+                  //   ),
+                  // ),
+                  // Container(height: 5, color: Colors.green[100]),
+
+                  // ///////////////////////////////// My Posts Section /////////////////////////
+                  // const SizedBox(height: 20),
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(horizontal: 20),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Row(
+                  //         children: [
+                  //           Image.asset('assets/images/experience.png', width: 40, height: 40, color: Colors.black),
+                  //           SizedBox(width: 10),
+                  //           const Text('My Posts',
+                  //               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  //           Spacer(),
+                  //           IconButton(
+                  //               onPressed: () {},
+                  //               icon: Icon(Icons.edit, color: Colors.green))
+                  //         ],
+                  //       ),
+                  //       SizedBox(height: 10),
+                  //       // MyPosts(),
+                  //       SizedBox(height: 20),
+                  //     ],
+                  //   ),
+                  // ),
+                  // ///////////////////////////////// My Posts Section /////////////////////////
+                  // Container(height: 5, color: Colors.green[100]),
                 ],
               ),
             ),

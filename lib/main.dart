@@ -13,7 +13,7 @@ import 'package:kon/views/registration_and_login_pages/verification.dart';
 void main() {
 WidgetsFlutterBinding.ensureInitialized();
 SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-  // statusBarColor: Colors.transparent,
+  statusBarColor: Colors.white,
   statusBarIconBrightness: Brightness.dark,
 
 ));
