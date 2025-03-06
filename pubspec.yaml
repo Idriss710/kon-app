@@ -38,7 +38,10 @@ dependencies:
   lottie: ^3.2.0
   get: ^4.7.2
   animated_notch_bottom_bar: ^1.0.0
-
+  multi_image_picker_plus: ^0.0.6
+  permission_handler: ^11.4.0
+  file_picker: ^9.0.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

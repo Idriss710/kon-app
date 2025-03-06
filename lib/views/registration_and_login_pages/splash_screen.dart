@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kon/views/registration_and_login_pages/forgot_password.dart';
 import 'package:kon/views/home_scren.dart';
-import 'package:kon/views/registration_and_login_pages/reset_password.dart';
-import 'package:kon/views/registration_and_login_pages/second_splash_screen.dart';
-import 'package:kon/views/registration_and_login_pages/rigester.dart';
-import 'package:kon/views/registration_and_login_pages/verification.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {

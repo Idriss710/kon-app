@@ -13,7 +13,7 @@ class GroupPage extends StatefulWidget {
 class _GroupPageState extends State<GroupPage> {
   final ScrollController _scrollController = ScrollController();
   bool _isScrollingDown = false;
-  List<String> _items = List.generate(20, (index) => "Homefff Item \${index + 1}");
+  List<String> _items = List.generate(20, (index) => "Home Item \${index + 1}");
   bool _isLoading = false;
 
   @override
