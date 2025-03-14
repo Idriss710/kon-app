@@ -2,27 +2,27 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:kon/widgets/custom_widgets/cusom_side_bar.dart';
+import 'package:kon/widgets/custom_widgets/custom_course_card.dart';
 import 'package:kon/widgets/custom_widgets/custom_dialog.dart';
-import 'package:kon/widgets/custom_widgets/custom_post_card.dart';
 import 'package:kon/widgets/custom_widgets/custom_search_text_field.dart';
 
-class HomePage extends StatefulWidget {
+class CoursesPage extends StatefulWidget {
   final Function(bool) onScroll;
   final NotchBottomBarController? controller;
 
-  const HomePage({Key? key, required this.onScroll, this.controller})
+  const CoursesPage({Key? key, required this.onScroll, this.controller})
       : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _CoursesPageState createState() => _CoursesPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CoursesPageState extends State<CoursesPage> {
   final ScrollController _scrollController = ScrollController();
   bool _isScrollingDown = false;
   bool _showTopBar = true; // للتحكم في إظهار شريط البحث
-  List<CustomPostcustomCard> _items =
-      List.generate(5, (index) => CustomPostcustomCard(showLikeComment: true));
+  List<CustomCourseCard> _items =
+      List.generate(5, (index) => CustomCourseCard());
   bool _isLoading = false;
   final TextEditingController searchTextEditingController =
       TextEditingController();
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
       await Future.delayed(Duration(seconds: 1));
       setState(() {
         _items.addAll(List.generate(
-            5, (index) => CustomPostcustomCard(showLikeComment: true)));
+            5, (index) => CustomCourseCard()));
         _isLoading = false;
       });
     }
@@ -101,16 +101,12 @@ class _HomePageState extends State<HomePage> {
           controller: _scrollController,
           itemCount: _items.length + 1,
           itemBuilder: (context, index) {
-            if (index == 0)
-              return SizedBox(
-                height: 60,
-              );
             if (index == _items.length) {
               return _isLoading
                   ? Center(child: CircularProgressIndicator())
                   : SizedBox.shrink();
             }
-            return CustomPostcustomCard(showLikeComment: true);
+            return CustomCourseCard();
           },
         ),
 
@@ -163,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: IconButton(
                   onPressed: () {
-                    CustomDialog(context,'Choose an action',true,false,false,false,false);
+                    CustomDialog(context,'Upload Course',false,false,false,true,false);
                   },
                   icon: const Icon(Icons.add, color: Colors.green),
                 ),
@@ -173,7 +169,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
 
-        // dar shadow for closing the side bar
+        // dark shadow for closing the side bar
         if (_isSidebarOpen)
           Positioned.fill(
             child: GestureDetector(

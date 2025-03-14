@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kon/widgets/custom_button.dart';
+import 'package:kon/widgets/custom_widgets/custom_button.dart';
 
 class NameTitleAndEditButton extends StatelessWidget {
   const NameTitleAndEditButton({super.key});

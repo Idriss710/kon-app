@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kon/widgets/custom_post_card.dart';
-import 'package:kon/widgets/profile_editing_pages/edit_education.dart';
-import 'package:kon/widgets/profile_editing_pages/edit_experience.dart';
-import 'package:kon/widgets/profile_editing_pages/edit_skills.dart';
-import 'package:kon/widgets/profile_editing_pages/my_posts_page.dart';
+import 'package:kon/widgets/custom_widgets/custom_post_card.dart';
+import 'package:kon/widgets/profile_adding_editing_pages/edit_education.dart';
+import 'package:kon/widgets/profile_adding_editing_pages/edit_experience.dart';
+import 'package:kon/widgets/profile_adding_editing_pages/edit_skills.dart';
+import 'package:kon/widgets/profile_screen_section/my_posts_page.dart';
 import 'package:kon/widgets/profile_screen_section/about.dart';
 import 'package:kon/widgets/profile_screen_section/cover_and_photo.dart';
 import 'package:kon/widgets/profile_screen_section/education_and_certifications.dart';
 import 'package:kon/widgets/profile_screen_section/experience.dart';
 import 'package:kon/widgets/profile_screen_section/name_title_edit_button.dart';
+import 'package:kon/widgets/profile_screen_section/project.dart';
 import 'package:kon/widgets/profile_screen_section/skills.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -56,8 +57,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                   NameTitleAndEditButton(),
                   Container(height: 5, color: Colors.green[100]),
+
+                  // //////////////////////////////// About Section //////////////////////////////
                   const SizedBox(height: 20),
                   About(),
+
                   const SizedBox(height: 16),
                   Container(height: 5, color: Colors.green[100]),
 
@@ -158,6 +162,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Container(height: 5, color: Colors.green[100]),
 
+                  // //////////////////////////////// Projects Section //////////////////////////////
+                  const SizedBox(height: 20),
+                  Project(),
+                  const SizedBox(height: 20),
+                  Container(height: 5, color: Colors.green[100]),
+
                   ///////////////////////////////// My Posts Section /////////////////////////
                   const SizedBox(height: 20),
                   Padding(
@@ -171,11 +181,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(width: 10),
                             const Text('My Posts',
                                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                            Spacer(),
-                            // IconButton(
-                            //     onPressed: () {},
-                            //     icon: Icon(Icons.arrow_circle_right_outlined, color: Colors.green))
-                          ],
+                            ],
                         ),
                         SizedBox(height: 10),
                         // MyPosts(),
@@ -183,8 +189,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                   ),
-                  ///////////////////////////////// My Posts Section /////////////////////////
-                  Divider(color: Colors.green,),
+                  
+                  // Divider(color: Colors.green,),
                   const SizedBox(height: 20),
                   CustomPostcustomCard(showLikeComment: true,),
                   // Divider(color: Colors.green,),

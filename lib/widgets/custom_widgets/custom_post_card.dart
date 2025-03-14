@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kon/views/comment_page.dart';
-import 'package:kon/widgets/custom_expandable_text.dart';
+import 'package:kon/widgets/custom_widgets/custom_expandable_text.dart';
 
 class CustomPostcustomCard extends StatefulWidget {
   final bool showLikeComment ;

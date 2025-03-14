@@ -72,7 +72,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kon/widgets/profile_editing_pages/edit_education.dart';
+import 'package:kon/widgets/profile_adding_editing_pages/edit_education.dart';
 
 class EducationAndCertifications extends StatelessWidget {
   const EducationAndCertifications({super.key});

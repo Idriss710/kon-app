@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kon/widgets/custom_button.dart';
-import 'package:kon/widgets/custom_expandable_text.dart';
+import 'package:kon/widgets/custom_widgets/custom_button.dart';
+import 'package:kon/widgets/custom_widgets/custom_expandable_text.dart';
 
 class Experience extends StatefulWidget {
   const Experience({super.key});

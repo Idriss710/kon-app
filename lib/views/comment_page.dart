@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kon/controllers/comment_controller.dart';
-import 'package:kon/widgets/custom_post_card.dart';
+import 'package:kon/views/comment_comment_page.dart';
+import 'package:kon/widgets/custom_widgets/custom_post_card.dart';
 
 class CommentsPage extends StatelessWidget {
   const CommentsPage({super.key});
@@ -74,7 +75,7 @@ class CommentsPage extends StatelessWidget {
                               ),
                               TextButton.icon(
                                 onPressed: () {
-                                  // Get.to(CommentCommentPage(comment: commentController.text.toString(),));
+                                  Get.to(CommentCommentPage(comment: commentController.text.toString(),));
                                 },
                                 label: Text('20'),
                                 icon: Icon(
@@ -101,14 +102,24 @@ class CommentsPage extends StatelessWidget {
                         controller: commentController,
                         decoration: InputDecoration(
                           hintText: 'Write a comment...',
-                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2,color: Colors.green),
+                            borderRadius: BorderRadius.circular(20)
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2),
+                            borderRadius: BorderRadius.circular(20)
+                          ),
                         ),
                         onSubmitted: (value) {
                           controller.addComment(value);
                         },
                       ),
                     ),
-                    IconButton(onPressed: () {}, icon: Icon(Icons.send))
+                    IconButton(onPressed: () {
+                      controller.addComment(commentController.text);
+                      // commentController.clear();
+                    }, icon: Icon(Icons.send,color: Colors.green,),)
                   ],
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kon/widgets/custom_post_card.dart';
+import 'package:kon/widgets/custom_widgets/custom_post_card.dart';
 
 class MyPostsPage extends StatefulWidget {
   // final Function(bool) onScroll;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kon/widgets/profile_editing_pages/edit_about.dart';
+import 'package:kon/widgets/profile_adding_editing_pages/edit_about.dart';
 
 class About extends StatelessWidget {
   const About({super.key});

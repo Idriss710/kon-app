@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kon/views/registration_and_login_pages/forgot_password.dart';
 import 'package:kon/views/registration_and_login_pages/rigester.dart';
-import 'package:kon/widgets/custom_button.dart';
-import 'package:kon/widgets/custom_text_field.dart';
+import 'package:kon/widgets/custom_widgets/custom_button.dart';
+import 'package:kon/widgets/custom_widgets/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

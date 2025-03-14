@@ -65,7 +65,7 @@ class _CustomExpandableTextState extends State<CustomExpandableText> {
                 isExpanded = !isExpanded;
               });
             },
-            child: Text(isExpanded ? "Show less" : "Show more"),
+            child: Text(isExpanded ? "See less" : "See more"),
           ),
       ],
     );

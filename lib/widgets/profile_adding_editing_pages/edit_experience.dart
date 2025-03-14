@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kon/views/profile_screen.dart';
-import 'package:kon/widgets/custom_button.dart';
+import 'package:kon/widgets/custom_widgets/custom_button.dart';
+import 'package:kon/widgets/custom_widgets/custom_text_field.dart';
 
-class EditAbout extends StatefulWidget {
+class EditExperience extends StatefulWidget {
   @override
-  _EditAboutState createState() => _EditAboutState();
+  _EditExperienceState createState() => _EditExperienceState();
 }
 
-class _EditAboutState extends State<EditAbout> {
-  TextEditingController _aboutController = TextEditingController();
+class _EditExperienceState extends State<EditExperience> {
+  TextEditingController _descriptionController = TextEditingController();
   int maxLength = 400;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Edit About "),
+      appBar: AppBar(title: const Text(" Experience "),
       leading: IconButton(onPressed: () {
         Get.off(ProfileScreen());
       }, icon: const Icon(Icons.arrow_back)),),
@@ -29,16 +30,36 @@ class _EditAboutState extends State<EditAbout> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Tell us about yourself:",
+                      "Job Title:",
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 10),
-                    TextField(
-                      controller: _aboutController,
+                    const CustomTextField(hintText: 'Job Name'),
+                    const SizedBox(height: 10),
+                    
+                    const Text(
+                      "Location:",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const CustomTextField(hintText: 'Name of the  place...'),
+                    const SizedBox(height: 10),
+                    
+                    const Text(
+                      "Period:",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const CustomTextField(hintText: 'Ex. 2012 - 2019'),
+                    const SizedBox(height: 10),
+                    
+                    const Text(
+                      "Description:",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                     TextField(
+                      controller: _descriptionController,
                       maxLines: 20,
                       maxLength: maxLength,
                       decoration: InputDecoration(
-                        hintText: "Write something about yourself...",
+                        hintText: "Job description...",
                         hintStyle: const TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
@@ -48,14 +69,14 @@ class _EditAboutState extends State<EditAbout> {
                         contentPadding: EdgeInsets.all(15),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     CustomButton(
-                    text: "Save",
+                    text: "Add",
                      onPressed: () {
-                        if (_aboutController.text.isNotEmpty) {
+                        if (_descriptionController.text.isNotEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Saved: ${_aboutController.text}")),
+                            SnackBar(content: Text("Saved: ${_descriptionController.text}")),
                           );
                         }
                       },

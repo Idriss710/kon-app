@@ -9,6 +9,8 @@ class CustomButton extends StatelessWidget {
   final double elevation;
   final IconData? icon;
   final Color iconColor;
+  final IconData? trailingIcon;
+  final Color? trailingIconColor;
   final double? width; // Custom width
 
   const CustomButton({
@@ -22,6 +24,8 @@ class CustomButton extends StatelessWidget {
     this.icon,
     this.iconColor = Colors.white,
     this.width, // Allow custom width
+    this.trailingIcon,
+    this.trailingIconColor
   });
 
   @override
@@ -49,6 +53,8 @@ class CustomButton extends StatelessWidget {
               text,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
+            if (trailingIcon != null) const SizedBox(width: 8),
+            if (trailingIcon != null) Icon(trailingIcon, color: trailingIconColor),
           ],
         ),
       ),

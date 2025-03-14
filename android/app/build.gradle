@@ -8,6 +8,7 @@ plugins {
 android {
     namespace = "com.example.kon"
     compileSdk = flutter.compileSdkVersion
+    // compileSdk = compileSdkVersion 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

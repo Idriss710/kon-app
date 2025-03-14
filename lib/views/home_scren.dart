@@ -311,10 +311,12 @@ import 'dart:developer';
 
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:kon/views/bottom_nav_bar_page/group_page.dart';
+import 'package:kon/views/bottom_nav_bar_page/courses_page.dart';
+import 'package:kon/views/bottom_nav_bar_page/groups_page.dart';
 import 'package:kon/views/bottom_nav_bar_page/notification_page.dart';
+import 'package:kon/views/bottom_nav_bar_page/services_page_categories.dart';
 import 'package:kon/views/bottom_nav_bar_page/settings_page.dart';
-import 'package:kon/widgets/cusom_side_bar.dart';
+import 'package:kon/widgets/custom_widgets/cusom_side_bar.dart';
 import 'package:kon/views/bottom_nav_bar_page/home_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -356,9 +358,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final List<Widget> bottomBarPages = [
       HomePage(controller: _controller, onScroll: _toggleBars),
-      GroupPage(onScroll: _toggleBars),
-      NotificationPage(onScroll: _toggleBars),
-      SettingsPage(onScroll: _toggleBars),
+      GroupsPage(onScroll: _toggleBars),
+      CoursesPage(onScroll: _toggleBars),
+      ServicesPageCategories(onScroll: _toggleBars),
     ];
 
     return Scaffold(
@@ -372,38 +374,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          ///////////////// TOP AppBar /////////////////////
-          // AnimatedPositioned(
-          //   top: _showBottomAndTopBars ? 40 : -100,
-          //   left: 15,
-          //   right: 15,
-          //   duration: Duration(milliseconds: 300),
-          //   child: Row(
-          //     children: [
-          //       if (_showBottomAndTopBars)
-          //         Container(
-          //           decoration: BoxDecoration(
-          //             color: Colors.white,
-          //             borderRadius: BorderRadius.circular(10),
-          //             boxShadow: [
-          //               BoxShadow(
-          //                 color: Colors.black.withOpacity(0.1),
-          //                 blurRadius: 8,
-          //                 spreadRadius: 2,
-          //                 offset: Offset(0, 4),
-          //               ),
-          //             ],
-          //           ),
-          //           child: IconButton(
-          //             onPressed: _toggleSidebar,
-          //             icon: const Icon(Icons.menu, color: Colors.green),
-          //           ),
-          //         ),
-          //       const SizedBox(width: 15),
-          //       CustomSearchTextField(controller: searchTextEditingController),
-          //     ],
-          //   ),
-          // ),
 
           // لإغلاق القائمة عند الضغط في أي مكان
           if (_isSidebarOpen)
@@ -461,6 +431,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   itemLabel: 'Groups',
                 ),
+                // BottomBarItem(
+                //   inActiveItem: Icon(
+                //     Icons.menu_book_outlined,
+                //     color: Colors.blueGrey,
+                //   ),
+                //   activeItem: Icon(
+                //     Icons.menu_book_outlined,
+                //     color: Colors.green,
+                //   ),
+                //   itemLabel: 'Courses',
+                // ),
                 BottomBarItem(
                   inActiveItem: Icon(
                     Icons.notification_important_outlined,
