@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kon/controllers/countdown_controller.dart';
+import 'package:kon/controllers/registration_and_login/auth_controller.dart';
 import 'package:kon/views/registration_and_login_pages/login.dart';
 import 'package:kon/widgets/custom_widgets/custom_button.dart';
 import 'package:kon/widgets/custom_widgets/custom_text_field.dart';
@@ -12,9 +14,15 @@ class RegistratoinScreen extends StatefulWidget {
 }
 
 class _RegistratoinScreenState extends State<RegistratoinScreen> {
-  final TextEditingController nameControler = TextEditingController();
+  
+  final AuthController _authController = Get.put(AuthController());
+
+  final TextEditingController usernameControler = TextEditingController();
   final TextEditingController emailControler = TextEditingController();
   final TextEditingController passwordControler = TextEditingController();
+  final countdownController = Get.put(CountdownController());
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +87,7 @@ class _RegistratoinScreenState extends State<RegistratoinScreen> {
                           ),
                           CustomTextField(
                             hintText: "Name",
-                            controller: nameControler,
+                            controller: usernameControler,
                             icon: Icons.person_2_outlined,
                             iconColor: Colors.green,
                             borderColor: Colors.green,
@@ -119,14 +127,28 @@ class _RegistratoinScreenState extends State<RegistratoinScreen> {
                             },
                           ),
                           SizedBox(height: 10,),
-                          /////// this row for 'Or' Sign up button /////////
-                          CustomButton(
+                          /////// Signup button /////////
+                          Obx(() {
+                            return
+                            _authController.isLoading.value ?
+                              CircularProgressIndicator() :
+                              CustomButton(
                             text: 'Signup',
                             borderRadius: 20,
                             backgroundColor: Colors.green,
                             width: double.infinity,
-                            onPressed: () {},
-                          ),
+                            onPressed: () {
+                              _authController.signUp(
+                                userName: usernameControler.text.trim(),
+                                userEmail: emailControler.text.trim(),
+                                password: passwordControler.text.trim());
+
+                              //////////// start the counter on verification page //////
+                              countdownController.startCountdown();
+
+                            },
+                          );
+                          },),
                           SizedBox(height: 20,),
                           /////// row of already have an account and Login  /////////
                           Row(

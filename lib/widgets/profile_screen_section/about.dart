@@ -14,7 +14,7 @@ class About extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-          Icon(Icons.person_2_outlined,color: const Color.fromARGB(153, 0, 0, 0),),
+                             Icon(Icons.person_2_outlined,color: const Color.fromARGB(153, 0, 0, 0),),
                               SizedBox(width: 10,),
                         const Text(
                           'About',

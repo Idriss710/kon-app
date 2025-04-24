@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kon/controllers/registration_and_login/auth_controller.dart';
+import 'package:kon/views/home_scren.dart';
 import 'package:kon/views/registration_and_login_pages/forgot_password.dart';
 import 'package:kon/views/registration_and_login_pages/rigester.dart';
 import 'package:kon/widgets/custom_widgets/custom_button.dart';
@@ -15,6 +17,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailControler = TextEditingController();
   final TextEditingController passwordControler = TextEditingController();
+
+  final AuthController _authController = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,14 +128,21 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                           const SizedBox(height: 10,),
-                          
+                          Obx(() {
+                            return
+                            _authController.isLoading.value ?
+                              CircularProgressIndicator() :
                           CustomButton(
                             text: 'Login',
                             borderRadius: 20,
                             backgroundColor: Colors.green,
                             width: double.infinity,
-                            onPressed: () {},
-                          ),
+                            onPressed: () {
+                              _authController.login(userEmail: emailControler.text.trim(), password: passwordControler.text.trim());
+                              // Get.to(HomeScreen());
+                            },
+                          );
+                          },),
                           const SizedBox(height: 20,),
 
                           Row(

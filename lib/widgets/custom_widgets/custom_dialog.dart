@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kon/views/bottom_nav_bar_page/single_chat-page.dart';
 import 'package:kon/widgets/custom_widgets/custom_button.dart';
 import 'package:kon/widgets/pages_for_adding_post_project_course_service/add_course.dart';
 import 'package:kon/widgets/pages_for_adding_post_project_course_service/add_group.dart';
@@ -25,7 +26,8 @@ void CustomDialog(BuildContext context, String title, bool addPost, bool addServ
             width: MediaQuery.of(context).size.width/2, 
             backgroundColor: Colors.green,
             onPressed: () {
-              Get.to(AddPostPage());
+              // Get.to(AddPostPage());
+              Get.to(singleChatPage());
             }),
             // SizedBox(height: 10,),
 

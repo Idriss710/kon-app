@@ -311,8 +311,11 @@ import 'dart:developer';
 
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kon/controllers/profile_controller.dart';
 import 'package:kon/views/bottom_nav_bar_page/courses_page.dart';
 import 'package:kon/views/bottom_nav_bar_page/groups_page.dart';
+import 'package:kon/views/bottom_nav_bar_page/messages_page.dart';
 import 'package:kon/views/bottom_nav_bar_page/notification_page.dart';
 import 'package:kon/views/bottom_nav_bar_page/services_page_categories.dart';
 import 'package:kon/views/bottom_nav_bar_page/settings_page.dart';
@@ -330,6 +333,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final _pageController = PageController(initialPage: 0);
   final NotchBottomBarController _controller = NotchBottomBarController(index: 0);
 
+  ProfileController _profileController = Get.put(ProfileController());
+  
   int maxCount = 5;
   bool _showBottomAndTopBars = true;
   bool _isSidebarOpen = false;
@@ -361,7 +366,9 @@ class _HomeScreenState extends State<HomeScreen> {
       GroupsPage(onScroll: _toggleBars),
       CoursesPage(onScroll: _toggleBars),
       ServicesPageCategories(onScroll: _toggleBars),
+      MessagesPage(onScroll: _toggleBars),
     ];
+    
 
     return Scaffold(
       body: Stack(
@@ -444,25 +451,36 @@ class _HomeScreenState extends State<HomeScreen> {
                 // ),
                 BottomBarItem(
                   inActiveItem: Icon(
-                    Icons.notification_important_outlined,
+                    Icons.ondemand_video,
                     color: Colors.blueGrey,
                   ),
                   activeItem: Icon(
-                    Icons.notification_important_outlined,
+                    Icons.ondemand_video,
                     color: Colors.green,
                   ),
-                  itemLabel: 'Notification',
+                  itemLabel: 'Courses',
                 ),
                 BottomBarItem(
                   inActiveItem: Icon(
-                    Icons.settings,
+                    Icons.auto_awesome_mosaic_outlined,
                     color: Colors.blueGrey,
                   ),
                   activeItem: Icon(
-                    Icons.settings,
+                    Icons.auto_awesome_mosaic_outlined,
                     color: Colors.green,
                   ),
-                  itemLabel: 'Settings',
+                  itemLabel: 'Services',
+                ),
+                BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.chat_outlined,
+                    color: Colors.blueGrey,
+                  ),
+                  activeItem: Icon(
+                    Icons.chat_outlined,
+                    color: Colors.green,
+                  ),
+                  itemLabel: 'Messages',
                 ),
               ],
               onTap: (index) {

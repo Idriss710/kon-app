@@ -1,49 +1,17 @@
-// import 'package:flutter/material.dart';
-
-// class CustomSidebar extends StatelessWidget {
-//   final VoidCallback onClose;
-
-//   const CustomSidebar({Key? key, required this.onClose}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 50,
-//       width: 250,
-//       color: Colors.blue,
-//       child: Column(
-//         children: [
-//           SizedBox(height: 50),
-//           // buildHeader(),
-//           ListTile(
-//             leading: Icon(Icons.home, color: Colors.white),
-//             title: Text("Home", style: TextStyle(color: Colors.white)),
-//             onTap: () {},
-//           ),
-//           ListTile(
-//             leading: Icon(Icons.settings, color: Colors.white),
-//             title: Text("Settings", style: TextStyle(color: Colors.white)),
-//             onTap: () {},
-//           ),
-//           Spacer(),
-//           ListTile(
-//             leading: Icon(Icons.close, color: Colors.white),
-//             title: Text("Close", style: TextStyle(color: Colors.white)),
-//             onTap: onClose, // Call the function to close Customsidebar
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kon/controllers/profile_controller.dart';
+import 'package:kon/controllers/registration_and_login/auth_controller.dart';
 import 'package:kon/views/profile_screen.dart';
+import 'package:kon/views/registration_and_login_pages/login.dart';
 
 class CustomSidebar extends StatelessWidget {
   final VoidCallback onClose;
 
-  const CustomSidebar({super.key, required this.onClose});
+   CustomSidebar({super.key, required this.onClose});
+
+  final AuthController authController = Get.put(AuthController());
+  final ProfileController _profileController = Get.find<ProfileController>();
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +41,8 @@ class CustomSidebar extends StatelessWidget {
           top: 24 + MediaQuery.of(context).padding.top,
           bottom: 24
           ),
-          child: Column(
+          child: Obx(() {
+            return Column(
             children: [
                ClipOval(
                 child: Image.asset(
@@ -85,12 +54,13 @@ class CustomSidebar extends StatelessWidget {
               ),
               SizedBox(height: 12,),
               //////// Name  ////////////////
-              Text('Ali Omer',style: TextStyle(fontSize: 28,color: Colors.white)),
+              Text("${_profileController.username}",style: TextStyle(fontSize: 28,color: Colors.white)),
               //////// Email  ////////////////
-              Text('aliomer@gmail.com',style: TextStyle(fontSize: 16,color: Colors.white),),
+              Text('${_profileController.email}',style: TextStyle(fontSize: 16,color: Colors.white),),
               
             ],
-          ),
+          );
+          },)
        ),
     ),
   );
@@ -116,7 +86,14 @@ class CustomSidebar extends StatelessWidget {
         leading: const Icon(Icons.settings_applications,color: Colors.green,),
         title: Text('Settings'),
         onTap: () {
-          
+         
+        },
+      ),ListTile(
+        leading: const Icon(Icons.logout,color: Colors.green,),
+        title: Text('Logout'),
+        onTap: () {
+           authController.logout();
+          // Get.offAll(LoginScreen());
         },
       ),
       Divider(color: Colors.grey,),

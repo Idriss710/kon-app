@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kon/widgets/custom_widgets/custom_button.dart';
+import 'package:kon/widgets/profile_adding_editing_pages/edit_profile.dart';
 
 class NameTitleAndEditButton extends StatelessWidget {
   const NameTitleAndEditButton({super.key});
@@ -25,7 +27,9 @@ class NameTitleAndEditButton extends StatelessWidget {
                   ),
                   CustomButton(
                     text: 'Edit',
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(EditProfile());
+                    },
                     width: MediaQuery.of(context).size.width / 2,
                     borderRadius: 20,
                     backgroundColor: Colors.green,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multi_image_picker_plus/multi_image_picker_plus.dart';
-import 'package:permission_handler/permission_handler.dart';
+// import 'package:permission_handler/permission_handler.dart';
 
 class SingleImagePickerController extends GetxController {
   RxList<Asset> images = <Asset>[].obs; // قائمة الصور كمصفوفة ملاحظة (Rx)

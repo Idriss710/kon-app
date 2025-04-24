@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kon/controllers/registration_and_login/auth_controller.dart';
 import 'package:kon/views/home_scren.dart';
+import 'package:kon/views/registration_and_login_pages/login.dart';
+import 'package:kon/views/registration_and_login_pages/second_splash_screen.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,13 +16,20 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> 
     with SingleTickerProviderStateMixin {
 
+  final AuthController _authController = Get.put(AuthController());
+
+
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 5),(){
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_)=> HomeScreen())
-      );
+
+////////////////////// check the loging status /////////////////////////////
+    Future.delayed(Duration(seconds: 4),(){
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(builder: (_)=> SecondSplashScreen())
+      // );
+    _authController.checkLoginStatus();
+
     });
   }
   
